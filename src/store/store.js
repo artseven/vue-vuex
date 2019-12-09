@@ -16,8 +16,8 @@ export const store = new Vuex.Store({
     }
   },
   mutations: {
-    increment: state => {
-      state.counter++;
+    increment: (state, payload) => {
+      state.counter+= payload;
     },
     decrement: state => {
       state.counter--;
@@ -27,14 +27,14 @@ export const store = new Vuex.Store({
     // increment: context => {
     // 	context.commit('increment');
 
-		// }
-		//es5 version
-		//vs
+    // }
+    //es5 version
+    //vs
     //es6 version
-    increment: ({ commit }) => {
-      commit("increment");
+    increment: ({ commit }, payload) => {
+      commit("increment", payload);
     },
-    decrement: ({ commit }) => {
+    decrement: ({ commit }, payload) => {
       commit("decrement");
     },
     asyncIncrement: ({ commit }) => {
